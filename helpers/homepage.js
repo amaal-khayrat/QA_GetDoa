@@ -5,7 +5,15 @@ const PageMetaTag ="Immerse yourself in a sanctuary of digital serenity. Access 
 
 export async function VerifySEOElement(page) {
     await expect(page).toHaveTitle(PageTitle);
-    
-    await page.getAttribute('meta[name="description"]', 'content');
-    expect (PageMetaTag).toEqual(PageMetaTag)
+
+    const metaDescription = await page.getAttribute('meta[name="description"]', 'content');
+    expect (metaDescription).toBe(PageMetaTag);
+}
+
+export async function VerifyLogoVisibility (page) {
+    const LogoLocator = page.getByRole('img', { name: 'GetDoa Logo' }).first();
+    await expect(LogoLocator).toBeVisible();
+
+    await expect(LogoLocator).toHaveAttribute('alt', 'GetDoa Logo');
+    await expect(LogoLocator).toHaveAttribute('src', '/logo.svg');
 }
