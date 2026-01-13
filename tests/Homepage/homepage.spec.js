@@ -20,10 +20,10 @@ const BaseUrl = 'https://getdoa.com';
 
 //Browser Setup
 test.beforeEach(async ({ page }) => {
-    // Suppress CORS errors from console
+  
     page.on('console', msg => {
         if (msg.type() === 'error' && msg.text().includes('CORS')) {
-            return; // Ignore CORS errors
+            return; 
         }
         console.log(msg.text());
     });
