@@ -71,6 +71,30 @@ test.describe('Homepage Tests', () => {
         test('CF-006 | Homepage | Secondary CTA buttons navigates correctly', async ({ page }) => {
             await ClickSecondaryCTA(page);
         });
+
+        test('CF-007 | Homepage | Secondary CTA buttons navigates correctly', async ({ page }) => {
+            await ClickSecondaryCTA(page);
+        });
+
+        test('CF-008 | Homepage | Doa Card Carousel', async ({ page }) => {
+            await ClickSecondaryCTA(page);
+        });
+        
+    });
+
+    test.describe('Features Section', () =>{
+
+        test('CF-009 | Homepage | Verify Feature Section is present', async ({ page }) => {
+
+        });
+
+        test('CF-010 | Homepage | Prime CTA is present and navigates correctly', async ({ page }) => {
+
+        });
+
+        test('CF-011 | Homepage | Secondary CTA buttons navigates correctly', async ({ page }) => {
+
+        });
         
     });
     

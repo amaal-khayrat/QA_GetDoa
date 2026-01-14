@@ -20,9 +20,3 @@ export async function RedirectLogin(page) {
 
 }
 
-/*
-export async function SSOLogin(page){
-    const ButtonFunction = page.getByRole('button', { name: 'Continue with Google' })
-    await ButtonFunction.click();
-
-}*/
