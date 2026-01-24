@@ -4,7 +4,7 @@ const PageTitle = "GetDoa - Your Personalized Prayer Journey";
 const PageMetaTag ="Immerse yourself in a sanctuary of digital serenity. Access authentic Doa, curate your daily supplications, and connect with the divine through a beautifully crafted experience."
 
 
-export async function GeneralHomepage (Page){
+export async function GeneralHomepage (page){
     const LogoLocator = page.getByRole('img', { name: 'GetDoa Logo' }).first();
     await expect(LogoLocator).toBeVisible();
 
@@ -152,18 +152,3 @@ export async function discoverPrayerList(page){
     await expect(Searchbar).toHaveAttribute('placeholder', 'Search lists by name or description...');
 }
 
-export async function Communityleaderboard(page){
-        
-
-    const elementToScrollTo = page.getByRole('heading', { name: 'Community Leaderboard' });
-    await elementToScrollTo.scrollIntoViewIfNeeded();
-    
-    const trophyIcon = page.locator('svg.lucide-trophy');
-    await expect(trophyIcon).toBeVisible();
-    await expect(page.getByText('Community Leaderboard')).toBeVisible();
-    await expect(page.getByText("See who's spreading the word about GetDoa. Join our referral program and climb the ranks!")).toBeVisible();
-    
-    const btnleaderboard = page.getByRole('link', { name: 'View Leaderboard' });
-    await expect (btnleaderboard).toBeVisible();
-    await expect(btnleaderboard).toHaveAttribute('href', '/leaderboard');
-}

@@ -15,13 +15,17 @@ import {
     FeatureSection_Card3,
     GeneralPrayerlist,
     discoverPrayerList,
-    Communityleaderboard
+
 } from '../../helpers/homepage';
 
 import {
     VerifySSOButton,
     RedirectLogin
 } from '../../helpers/Login';
+
+import {
+    Communityleaderboard
+} from '../../helpers/community';
 
 const BaseUrl = 'https://getdoa.com';
 
