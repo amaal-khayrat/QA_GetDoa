@@ -103,7 +103,7 @@ The report is generated in the `playwright-report/` folder.
 | ------- | --------- | ----------- | --------- | ----------------- |
 | CF-001 | Verify SEO Present | Validates page title and meta description content | Positive | Automated |
 | CF-002 | Top Navigation is present and visible | Checks SEO elements, logo visibility, and SSO button presence | Positive | Automated |
-| CF-003 | Login Redirection | Clicks SSO button and verifies redirect to login page with correct copy | Positive | Automated |
+
 
 #### Hero Section
 
