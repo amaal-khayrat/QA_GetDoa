@@ -14,6 +14,8 @@ test.describe('GetDoa | Auth | Login', () => {
     const auth = new Auth(page);
     await auth.navigate();
     await auth.verifySSOButton();
+    await auth.verifyLoginPage();
+    await auth.verifyGoogleRedirect();
   });
 
 });

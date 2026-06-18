@@ -15,6 +15,7 @@ export default defineConfig({
   use: {
     baseURL: 'https://getdoa.com',
     trace: 'on-first-retry',
+    storageState: 'auth.json',
   },
 
   projects: [
