@@ -1,4 +1,4 @@
 // @profile
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 // PUP — /user/:userId respects privacy setting

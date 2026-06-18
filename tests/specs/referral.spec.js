@@ -1,4 +1,4 @@
 // @referral
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 // REF — referral signup URL, bonus, bonus cap
