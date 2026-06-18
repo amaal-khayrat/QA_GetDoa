@@ -1,4 +1,4 @@
 // @dua
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 // DUA — individual dua detail page (/doa/:slug)
