@@ -1,9 +1,5 @@
-// @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -11,25 +7,22 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  
   use: {
     baseURL: 'https://getdoa.com',
+    channel: 'chrome',
     trace: 'on-first-retry',
-    storageState: 'auth.json',
   },
-
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'logged-out',
+      testMatch: /auth\.spec\.js/,
+      use: { storageState: { cookies: [], origins: [] } },
     },
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'authenticated',
+      testMatch: '**/specs/*.spec.js',
+      testIgnore: '**/auth.spec.js',
+      use: { storageState: 'auth.json' },
     },
   ],
 });

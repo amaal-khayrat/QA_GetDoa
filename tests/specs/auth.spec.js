@@ -13,6 +13,8 @@ test.describe('GetDoa | Auth | Login', () => {
   test('Auth - 001 | Login button is present and visible', async ({ page }) => {
     const auth = new Auth(page);
     await auth.navigate();
+    await auth.verifyLogo();
+    await auth.verifyPageTitle();
     await auth.verifySSOButton();
     await auth.verifyLoginPage();
     await auth.verifyGoogleRedirect();

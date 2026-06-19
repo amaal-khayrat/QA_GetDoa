@@ -7,3 +7,8 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 auth.json
+scripts/cookies.json
+scripts/localStorage.json
+
+# Docs
+docs/sso-auth-key-points.md
