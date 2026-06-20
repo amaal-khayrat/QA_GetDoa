@@ -24,5 +24,11 @@ export default defineConfig({
       testIgnore: '**/auth.spec.js',
       use: { storageState: 'auth.json' },
     },
+    /*{
+  name: 'auth-check',
+  testMatch: /auth\.spec\.js/,
+  use: { storageState: 'auth.json' },
+   },*/
+
   ],
 });
