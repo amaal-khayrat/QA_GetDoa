@@ -14,6 +14,27 @@ export class AdminPage {
     this.logo = page.getByRole('img', { name: 'GetDoa Logo' }).first();
     this.DashboardLabel = page.getByRole('link', { name: 'Go to Dashboard' });
 
+    //Homepage Dashboard navigator
+    this.sidebar = page.locator('[data-slot="sidebar-menu"]');
+
+    this.navDashboard      = this.sidebar.getByRole('button', { name: 'Dashboard' });
+    this.navCreateDoaList  = this.sidebar.getByRole('button', { name: 'Create Doa List' });
+    this.navCreateDoaImage = this.sidebar.getByRole('button', { name: 'Create Doa Image' });
+    this.navBrowseDuas     = this.sidebar.getByRole('button', { name: 'Browse Duas' });
+    this.navDiscoverLists  = this.sidebar.getByRole('button', { name: 'Discover Lists' });
+    this.navFavorites      = this.sidebar.getByRole('button', { name: 'Favorites' });
+    this.navProfile        = this.sidebar.getByRole('button', { name: 'Profile Settings' });
+    this.navInviteFriends  = this.sidebar.getByRole('button', { name: 'Invite Friends' });
+
+    // Navigable links (aria-current / data-status live on the <a>)
+    this.dashboardLink     = this.sidebar.locator('a[href="/dashboard"]');
+    this.createDoaListLink = this.sidebar.locator('a[href="/dashboard/create-doa-list"]');
+    this.createDoaImgLink  = this.sidebar.locator('a[href="/dashboard/doa-image"]');
+    this.browseDuasLink    = this.sidebar.locator('a[href="/doa"]');
+    this.discoverListsLink = this.sidebar.locator('a[href="/lists"]');
+    this.profileLink       = this.sidebar.locator('a[href="/dashboard/profile"]');
+    this.invriteFriendsLink = this.sidebar.locator('a[href="/dashboard/referrals"]');
+    
     //Constants
     this.baseURL = 'https://getdoa.com/';
     this.pageTitle = 'GetDoa - Your Personalized Prayer Journey'
@@ -47,6 +68,29 @@ export class AdminPage {
     await expect(this.sidebarSubtitle).toBeVisible();
     await expect(this.sidebarDashboardLink).toBeVisible();
   }
+
+  async verifyDashboardNavi(){
+    await expect(this.navDashboard).toBeVisible();
+    await expect(this.navCreateDoaList).toBeVisible();
+    await expect(this.navCreateDoaImage).toBeVisible();
+    await expect(this.navBrowseDuas).toBeVisible();
+    await expect(this.navDiscoverLists).toBeVisible();
+    await expect(this.navFavorites).toBeVisible();
+    await expect(this.navInviteFriends).toBeVisible();
+    await expect(this.navProfile).toBeVisible();
+  }
+
+  async verifyAllIconsPresent() {
+    await expect(this.navDashboard.locator('svg').first()).toBeVisible();
+    await expect(this.navCreateDoaList.locator('svg').first()).toBeVisible();
+    await expect(this.navCreateDoaImage.locator('svg').first()).toBeVisible();
+    await expect(this.navBrowseDuas.locator('svg').first()).toBeVisible();
+    await expect(this.navDiscoverLists.locator('svg').first()).toBeVisible();
+    await expect(this.navFavorites.locator('svg').first()).toBeVisible();
+    await expect(this.navProfile.locator('svg').first()).toBeVisible();
+    await expect(this.navInviteFriends.locator('svg').first()).toBeVisible();
+}
+
 }
 
 

@@ -27,4 +27,14 @@ test('Auth - 003 | Dashboard page is present', async ({ page }) => {
 
   });
 
+test('Auth - 004 | Dashboard Navigation is present and visible', async ({ page }) => {
+    const auth = new Auth(page);
+    const adminPage = new AdminPage(page);
+
+    await adminPage.verifyLoginState();
+    await adminPage.verifyDashboardPage();
+    await adminPage.verifyDashboardNavi();
+    await adminPage.verifyAllIconsPresent();
+  });
+
 });
