@@ -34,6 +34,7 @@ export class AdminPage {
     this.discoverListsLink = this.sidebar.locator('a[href="/lists"]');
     this.profileLink       = this.sidebar.locator('a[href="/dashboard/profile"]');
     this.invriteFriendsLink = this.sidebar.locator('a[href="/dashboard/referrals"]');
+    this.userAccount = page.getByRole('button', { name: 'Test Jun testjun1306@gmail.com' })
     
     //Constants
     this.baseURL = 'https://getdoa.com/';
@@ -89,7 +90,14 @@ export class AdminPage {
     await expect(this.navFavorites.locator('svg').first()).toBeVisible();
     await expect(this.navProfile.locator('svg').first()).toBeVisible();
     await expect(this.navInviteFriends.locator('svg').first()).toBeVisible();
-}
+  }
+
+  async VerifyUserAccount(){
+    await expect(this.userAccount).toBeVisible();
+    await this.userAccount.click();
+    await expect(this.page.getByText('Log out')).toBeVisible();
+    await this.page.getByText('Log out').click();
+  }
 
 }
 

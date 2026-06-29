@@ -7,15 +7,21 @@ export class Auth{
 
 //Homepage locators
 
-     this.logo = page.getByRole('img', { name: 'GetDoa Logo' }).first();
-     this.SSOButton = page.getByRole('link', {name: 'Sign In with Google'});
+    this.logo = page.getByRole('img', { name: 'GetDoa Logo' }).first();
+    this.SSOButton = page.getByRole('link', {name: 'Sign In with Google'});
 
+//Modal Sizing
+    this.ModalSize = page.locator('div.relative.w-full.max-w-md');
+    this.ModalClose = page.getByRole('link', { name: 'Close' });
 
+// login page locators
+     this.LoginHeader = page.getByText('Welcome to GetDoa', { exact: true });
+     this.LoginSubtext = page.getByText('Continue your prayer journey with Google');
+     this.LoginButton = page.getByRole('button', { name: 'Continue with Google' });
 
-// login page locator
-     this.LoginHeader = page.locator('[data-slot="card-title"]');
-     this.LoginSubtext = page.locator('[data-slot="card-description"]');
-     this.LoginButton = page.getByRole('button', {name: 'Continue with Google'});
+// Register page locator
+     this.RegisterSubtext = page.getByText('New to GetDoa');
+     this.RegisterButton = page.getByRole('button', { name: 'Create a free account' });
 
 //Constants
     this.baseURL = 'https://getdoa.com/';
@@ -41,13 +47,12 @@ export class Auth{
 
   async verifySSOButton (){
     await expect(this.SSOButton).toBeVisible();
-    await expect(this.SSOButton).toHaveText('Sign In with Google');
+    await expect(this.SSOButton).toHaveText('Sign in with Google');
     await this.SSOButton.click();
     await expect(this.page).toHaveURL('https://getdoa.com/login');
   }
 
   async verifyLoginPage(){
-
     await expect(this.LoginHeader).toHaveText('Welcome to GetDoa');
     await expect(this.LoginSubtext).toHaveText('Continue your prayer journey with Google');
     await expect(this.LoginButton).toHaveText('Continue with Google');
